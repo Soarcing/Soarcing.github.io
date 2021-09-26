@@ -4,13 +4,25 @@
   
     
     <entry>
-      <title></title>
-      <link href="posts/0.html"/>
-      <url>posts/0.html</url>
+      <title>修改本地host加速访问GitHub</title>
+      <link href="posts/2.html"/>
+      <url>posts/2.html</url>
       
         <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="中国国内访问-GitHub-为什么很慢很卡甚至访问不了？如何加速访问-GitHub-网站？"><a href="#中国国内访问-GitHub-为什么很慢很卡甚至访问不了？如何加速访问-GitHub-网站？" class="headerlink" title="中国国内访问 GitHub 为什么很慢很卡甚至访问不了？如何加速访问 GitHub 网站？"></a>中国国内访问 GitHub 为什么很慢很卡甚至访问不了？如何加速访问 GitHub 网站？</h1><h3 id="个人总结：强扭的瓜不甜，修改-hosts-也就片刻好光景，要不了多久就变得比没改-hosts-之前更慢。所以还是顺其自然就好，不要白费力气去修改-hosts。"><a href="#个人总结：强扭的瓜不甜，修改-hosts-也就片刻好光景，要不了多久就变得比没改-hosts-之前更慢。所以还是顺其自然就好，不要白费力气去修改-hosts。" class="headerlink" title="个人总结：强扭的瓜不甜，修改 hosts 也就片刻好光景，要不了多久就变得比没改 hosts 之前更慢。所以还是顺其自然就好，不要白费力气去修改 hosts。"></a>个人总结：强扭的瓜不甜，修改 hosts 也就片刻好光景，要不了多久就变得比没改 hosts 之前更慢。所以还是顺其自然就好，不要白费力气去修改 hosts。</h3><p><strong>摘要：</strong><br> 网站分发加速网络的域名遭到 DNS 污染，DNS 不能直接找到那个最快的 IP！ 通过修改系统 hosts 文件的办法，绕过国内 DNS 解析，直接访问 GitHub 的 CDN 节点，从而达到加速的目的！</p><p><strong>如何检验效果：</strong><br> 操作之前先 ping 一下 github.com，两个请求超时，两个 93ms。<br> 操作之后再 ping 一下 github.com，没有丢失，四个 287ms。</p><h2 id="一、国内访问-GitHub-为什么很慢？"><a href="#一、国内访问-GitHub-为什么很慢？" class="headerlink" title="一、国内访问 GitHub 为什么很慢？"></a>一、国内访问 GitHub 为什么很慢？</h2><p>GitHub 的 CDN 域名遭到 DNS 污染，导致无法连接使用 GitHub 的加速分发服务器，才使得国内访问速度很慢。</p><h2 id="二、如何解决-DNS-污染？"><a href="#二、如何解决-DNS-污染？" class="headerlink" title="二、如何解决 DNS 污染？"></a>二、如何解决 DNS 污染？</h2><p>通过修改 Hosts 文件，将域名解析直接指向 IP 地址来绕过 DNS 的解析，以此解决污染问题。</p><h2 id="三、具体操作步骤"><a href="#三、具体操作步骤" class="headerlink" title="三、具体操作步骤"></a>三、具体操作步骤</h2><h5 id="1、打开-https-www-ipaddress-com-这个全球最好的-IP-地址查询工具网站来查询出域名当前对应的最优-IP。（不要用-ip168-com-这类国内的-IP-探针，其获取的国外域名的-ip-也是被-DNS-污染过的）"><a href="#1、打开-https-www-ipaddress-com-这个全球最好的-IP-地址查询工具网站来查询出域名当前对应的最优-IP。（不要用-ip168-com-这类国内的-IP-探针，其获取的国外域名的-ip-也是被-DNS-污染过的）" class="headerlink" title="1、打开 https://www.ipaddress.com/ 这个全球最好的 IP 地址查询工具网站来查询出域名当前对应的最优 IP。（不要用 ip168.com 这类国内的 IP 探针，其获取的国外域名的 ip 也是被 DNS 污染过的）"></a>1、打开 <a href="https://www.ipaddress.com/">https://www.ipaddress.com/</a> 这个全球最好的 IP 地址查询工具网站来查询出域名当前对应的最优 IP。（不要用 ip168.com 这类国内的 IP 探针，其获取的国外域名的 ip 也是被 DNS 污染过的）</h5><p>查询下面 3 个网址对应的 IP 地址<br> github.com : 140.82.113.4<br> assets-cdn.github.com : 185.199.108.153  185.199.109.153 185.199.110.153 185.199.111.153<br> github.global.ssl.fastly.net : 199.232.69.194</p><h5 id="2、修改本地电脑系统-hosts-文件"><a href="#2、修改本地电脑系统-hosts-文件" class="headerlink" title="2、修改本地电脑系统 hosts 文件"></a>2、修改本地电脑系统 hosts 文件</h5><p>Windows 系统中的文件路径：<code>C:\WINDOWS\system32\drivers\etc</code><br> Linux 系统中的文件路径：<code>/etc/hosts</code></p><p>直接在最后面加入以下代码</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token number">192.30</span>.253.112 github.com<span class="token number">140.82</span>.113.4 github.com<span class="token number">185.199</span>.108.153 assets-cdn.github.com<span class="token number">199.232</span>.69.194 github.global.ssl.fastly.net<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre><p>说明：在 Windows 系统中，包括 XP、Win7、Win8 、Win10 系统中，hosts 文件的位置都是一样的。如果 etc 文件夹中并没有 hosts 文件，那么可能是该文件隐藏了，可以设置一下，让其显示出来即可。</p><h5 id="3、-更新dns缓存"><a href="#3、-更新dns缓存" class="headerlink" title="3、 更新dns缓存"></a>3、 更新dns缓存</h5><p>修改后会直接生效，无需刷新 DNS 缓存，因为 hosts 的优先级大于 DNS 域名解析，添加完 hosts 之后，再访问对应的域名，已经就与 DNS 没关系了。如果未生效，重启操作系统或用命令刷新。<br> Windows 系统：<code>ipconfig /flushdns</code><br> Linux 系统：<code>systemctl restart nscd</code><br> Mac 系统：<code>sudo dscacheutil -flushcache或sudo killall -HUP mDNSResponder</code></p><p>–转载自<a href="https://www.cnblogs.com/sochishun/p/14505669.html">https://www.cnblogs.com/sochishun/p/14505669.html</a></p>]]></content>
       
       
+      <categories>
+          
+          <category> 工具篇 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> GitHub </tag>
+            
+        </tags>
       
     </entry>
     
