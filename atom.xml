@@ -6,7 +6,7 @@
   <link href="https://soarcing.github.io/atom.xml" rel="self"/>
   
   <link href="https://soarcing.github.io/"/>
-  <updated>2022-01-12T11:23:13.635Z</updated>
+  <updated>2022-01-12T11:29:11.756Z</updated>
   <id>https://soarcing.github.io/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>测试123</title>
-    <link href="https://soarcing.github.io/posts/4ed5b0fa.html"/>
-    <id>https://soarcing.github.io/posts/4ed5b0fa.html</id>
+    <title>123</title>
+    <link href="https://soarcing.github.io/posts/123456.html"/>
+    <id>https://soarcing.github.io/posts/123456.html</id>
     <published>2022-01-12T11:12:27.377Z</published>
-    <updated>2022-01-12T11:23:13.635Z</updated>
+    <updated>2022-01-12T11:29:11.756Z</updated>
     
     <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>测试123</p>]]></content>
     
@@ -108,9 +108,9 @@
     <category term="工具篇" scheme="https://soarcing.github.io/categories/%E5%B7%A5%E5%85%B7%E7%AF%87/"/>
     
     
-    <category term="PicGo" scheme="https://soarcing.github.io/tags/PicGo/"/>
-    
     <category term="Typora" scheme="https://soarcing.github.io/tags/Typora/"/>
+    
+    <category term="PicGo" scheme="https://soarcing.github.io/tags/PicGo/"/>
     
     <category term="Gitee" scheme="https://soarcing.github.io/tags/Gitee/"/>
     
