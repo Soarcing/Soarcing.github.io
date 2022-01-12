@@ -4,11 +4,11 @@
   
     
     <entry>
-      <title>123456</title>
-      <link href="posts/123456.html"/>
-      <url>posts/123456.html</url>
+      <title></title>
+      <link href="posts/0.html"/>
+      <url>posts/0.html</url>
       
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>测试123</p>]]></content>
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
       
       
       
